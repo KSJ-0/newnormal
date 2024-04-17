@@ -3,7 +3,7 @@
 $pdo = new PDO('mysql:host=localhost;dbname=newnormal', 'root', '1124');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-echo "MySQL 연결 성공";
+echo "MySQL 연결 성공\n";
 
 $ch = curl_init();
 
@@ -54,7 +54,7 @@ foreach ($data['response']['body']['items']['item'] as $item) {
     $stmt->bindParam(':dc10Tca', $newItem['dc10Tca']);
     $stmt->bindParam(':rn', $newItem['rn']);;
     $stmt->execute();
-    echo "전날 날씨 데이터 저장 완료";
+    echo "전날 날씨 데이터 저장 완료 : {$newItem['tm']}\n";
 }
 
 ?>
